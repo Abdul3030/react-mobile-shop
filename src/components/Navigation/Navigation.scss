@@ -1,0 +1,66 @@
+@import '../../shared';
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+
+
+
+
+.navigation-container{
+    width: 100%;
+    min-height: 50px;
+    background: $bg-sec;
+    box-shadow: 0 0 3px 5px rgba($color: #f1f1f1, $alpha: 0.5);
+    .navigation-wrapper{
+        width: 90%;
+        height: 100%;
+        padding: 0.5rem;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo-wrapper{
+            padding-right: 1rem;
+            text-transform: uppercase;
+            color: $special;
+            font-family: 'Potta One', cursive;
+        } 
+        .nav-items-wrapper{
+            color: $special;
+            text-align: left;
+            display: flex;
+            flex: 1;
+        }
+         
+        .nav-icons-wrapper{
+            padding: 0 0.5rem;
+            color: $special;
+            justify-self: right;
+            display: flex;
+            align-items: center;
+            user-select: none;
+            .icon{
+                position: relative;
+                padding: 0 1rem;
+                font-size: 1.5rem;
+                cursor: pointer;
+                &:active{
+                    opacity: 0.5;
+                }
+                .badge{
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    top: -20%;
+                    left: 10%;
+                    background: $special;
+                    color: $bg-pri;
+                    padding: 5px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 0.6rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@import '../../../shared';
+
+
+
+.cart-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem 0;
+    width: 100%;
+    .image-wrapper{
+        width: 100%;
+        height: 100%;
+        max-width: 80px;
+        min-height: 100%;
+        padding: 5px;
+        img{
+            width: 100%;
+        }
+    }
+    .details-wrapper{
+        flex: 1;
+        font-size: 0.8rem;
+        color: $bg-sec;
+        .price-wrapper{
+            margin-top: 5px;
+        }
+    }
+    .delete-btn{
+        color: rgba($color: #000000, $alpha: 0.4);
+    }
+}

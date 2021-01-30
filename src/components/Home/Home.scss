@@ -1,0 +1,28 @@
+@import '../../shared';
+
+
+
+
+.home-container{
+    width: 100%;
+    background: $bg-pri;
+    .promos-container{
+        display: flex;
+        flex: 0 0 25%;
+        overflow-x: hidden;
+    }
+    .products-container{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-auto-rows: auto;
+    }
+    .services-container{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}

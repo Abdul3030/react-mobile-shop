@@ -1,0 +1,73 @@
+@import '../../../shared';
+
+
+
+
+
+
+
+.slide-container{
+    width: 100%;
+    height: calc(100vh - 50px);
+    position: relative;
+    .image-wrapper{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .slide-image{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .content-container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation-name: jump-over;
+        animation-duration: 1s;
+        @keyframes jump-over{
+            from{
+                top:100%;
+                display: none;
+            }
+            to{
+                top: 0;
+                display: block;
+            }
+        }
+        .content-wrapper{
+            max-width: 500px;
+            text-align: center;
+            .pri-title{
+                color: $special;
+                font-size: 2rem;
+            }
+            .title{
+                color: $bg-pri;
+                font-size: 3rem;
+            }
+            .sub-title{
+                color: $col-sec;
+            }
+            .shop-now{
+                border: none;
+                outline: 0;
+                padding: 1rem 2rem;
+                background: $special;
+                color: $bg-pri;
+                border-radius: 0.7rem;
+                margin: 15px 0;
+                cursor: pointer;
+                &:active{
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
