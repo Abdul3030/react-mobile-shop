@@ -37,12 +37,12 @@
             display: flex;
             align-items: center;
             user-select: none;
-            .icon{
+            .icons{
                 position: relative;
                 padding: 0 1rem;
                 font-size: 1.5rem;
                 cursor: pointer;
-                &:active{
+                &:active .icon{
                     opacity: 0.5;
                 }
                 .badge{

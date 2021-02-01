@@ -10,7 +10,7 @@ const NavItem = ({navName}) => {
 
     return (
         <div className="nav-item">
-            <Link >
+            <Link to='/'>
                 {navName}
             </Link>
         </div>

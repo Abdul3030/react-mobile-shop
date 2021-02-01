@@ -1,15 +1,18 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import Header from '../Header/Header';
+import { connect } from 'react-redux';
+
 import './Home.scss';
+
 import Promo from '../Promo/Promo';
 import Product from '../Product/Product';
 import Service from '../Service/Service';
 import Footer from '../Footer/Footer';
 
 
-const Home = () => {
-
+const Home = ({items, full}) => {
+    console.log(full);
     return (
         <div className="home-container">
             <Navigation />
@@ -21,14 +24,9 @@ const Home = () => {
                 <Promo />
             </div>
             <div className="products-container">
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
+                {
+                    items?items.map(item=><Product key={item.id} item={item} />):null
+                }
             </div>
             <section className="services-container">
                 <Service/>
@@ -40,6 +38,11 @@ const Home = () => {
     )
 };
 
+const mapStateToProps = (state) => {
+    return {
+        items: state.products,
+        full: state
+    }
+};
 
-
-export default Home;
+export default connect(mapStateToProps)(Home);

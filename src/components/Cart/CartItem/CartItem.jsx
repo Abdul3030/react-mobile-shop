@@ -1,30 +1,37 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { ActionTypes } from '../../../store/cartActions';
 import './CartItem.scss';
 import {RiDeleteBin6Line} from 'react-icons/ri';
-import image from '../../../assets/image/slide1.jpg';
 
-const CartItem = () => {
-
+const CartItem = ({item, removeFromCart}) => {
+    const {imgUrl, title, quantity, price} = item;
     return (
         <div className="cart-item">
             <div className="image-wrapper">
-                <img src={image} alt="Product" className="product-image"/>
+                <img src={imgUrl} alt="Product" className="product-image"/>
             </div>
             <div className="details-wrapper">
                 <p className="product-title">
-                    Proactive Case For Apple
+                    {title}
                 </p>
                 <div className="price-wrapper">
-                    <span className="quantity">5</span>
-                    X
-                    <span className="price">125</span>
+                    <span className="quantity"> {quantity} </span>
+                        X
+                    <span className="price"> ${price}</span>
                 </div>
             </div>
             <div className="delete-btn">
-                <RiDeleteBin6Line />
+                <RiDeleteBin6Line onClick={()=> removeFromCart(item.id)} />
             </div>
         </div>
     )
 };
 
-export default CartItem;
+const mapDispatchToProps = dispatch => {
+    return {
+        removeFromCart: itemId => dispatch({type: ActionTypes.REMOVE_FROM_CART, payload: itemId})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CartItem);

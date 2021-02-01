@@ -15,8 +15,9 @@
         width: 90%;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(4, auto);
-        grid-auto-rows: auto;
+        grid-template-columns: repeat(4, auto); 
+        grid-template-rows: repeat(auto,400px);
+        gap: 10px;
     }
     .services-container{
         width: 90%;

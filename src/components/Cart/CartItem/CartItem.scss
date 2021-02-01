@@ -24,6 +24,12 @@
         color: $bg-sec;
         .price-wrapper{
             margin-top: 5px;
+            font-size: 0.7rem;
+            .quantity, .price{
+                font-weight: 500;
+                font-size: 0.8rem;
+            }
+            
         }
     }
     .delete-btn{

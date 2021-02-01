@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { connect } from 'react-redux';
 import {HiOutlineShoppingBag, HiOutlineUser, HiSearch} from 'react-icons/hi';
 import NavItem from './NavItem/NavItem';
 import './Navigation.scss';
 import Cart from '../Cart/Cart';
 
-const Navigation = () => {
-
+const Navigation = ({cart}) => {
+    const [cartOpen, setCartOpen] = useState(false);
+    const cartOpenHandler = () => {
+        setCartOpen(prev => !prev)
+    };
+    console.log(cart);
     return(
         <nav className="navigation-container">
             <div className="navigation-wrapper">
@@ -21,18 +26,18 @@ const Navigation = () => {
                     <NavItem navName="iPhone 12pro" />
                 </div>
                 <div className="nav-icons-wrapper">
-                    <div className="icon">
-                        <HiSearch />
+                    <div className="icons">
+                        <HiSearch className='icon' />
                     </div>
-                    <div className="icon">
-                        <HiOutlineUser />
+                    <div className="icons">
+                        <HiOutlineUser className='icon' />
                     </div>
-                    <div className="icon">
-                        <HiOutlineShoppingBag />
+                    <div className="icons" >
+                        <HiOutlineShoppingBag className='icon' onClick={cartOpenHandler} />
                         <span className="badge">
-                            50
+                            {cart ? cart.reduce((acc, val) => acc + val.quantity, 0) : 0}
                         </span>
-                        <Cart />
+                        <Cart cartOpen={cartOpen} />
                     </div>
                 </div>
             </div>
@@ -40,5 +45,11 @@ const Navigation = () => {
         )
 };
 
+const mapStateToProps = state => {
+    console.log(state)
+    return {
+        cart: state.cart
+    }
+}
 
-export default Navigation;
+export default connect(mapStateToProps)(Navigation);

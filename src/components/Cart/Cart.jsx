@@ -1,27 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import CartItem from './CartItem/CartItem';
 import './Cart.scss';
 
 
 
-const Cart = () => {
+const Cart = ({cartOpen, cart}) => {
 
+    
     return (
-        <div className="cart-container">
+        <div className="cart-container" style={{display: `${cartOpen?'block':'none'}`}}>
             <div className="cart-wrapper">
                 <div className="cart-items-wrapper">
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
+                    {
+                        cart?cart.map(item => <CartItem key={item.id} item={item} />): <p>The cart is empty</p>
+                    }
                 </div>
                 <div className="total-price">
                     <p className="total">
                         TOTAL:
                     </p>
                     <p className="price">
-                        $550.00
+                        ${cart.reduce((acc, val) => acc + (val.quantity * val.price), 0)}
                     </p>
                 </div>
                 <div className="proceed-button">
@@ -38,6 +38,10 @@ const Cart = () => {
     )
 };
 
+const mapStateToProps = state => {
+    return {
+        cart: state.cart
+    }
+}
 
-
-export default Cart;
+export default connect(mapStateToProps)(Cart);
