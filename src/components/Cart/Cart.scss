@@ -12,7 +12,9 @@
     .cart-wrapper{
         padding: 1rem;
         .cart-items-wrapper{
-            border-bottom: 1px solid rgba($color: #000000, $alpha: 0.5)
+            max-height: 250px;
+            border-bottom: 1px solid rgba($color: #000000, $alpha: 0.5);
+            overflow-y: auto;
         }
         .total-price{
             font-size: 1rem;
@@ -26,6 +28,31 @@
             .price{
 
             }
+        }
+        .proceed-button{
+            width: 100%;
+            margin: 5px 0;
+            button{
+                width: 100%;
+                padding: 0.5rem 0;
+                background: $special;
+                color: $bg-pri;
+                border: none;
+                border-radius: 0.5rem;
+                text-transform: uppercase;
+                box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+            }
+        }
+        .view-cart{
+            width: 100%;
+            text-align: center;
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                    &:hover{
+                        text-shadow: 0 0 10px $special;
+                    }
+                }
         }
     }
 }

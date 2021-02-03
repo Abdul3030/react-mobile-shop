@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 const Product = ({item, addToCart}) => {
     const {imgUrl, title, brand, rating, price} = item;
     return (
-        <div className="product-container">
+        <div className="product-container" >
             <div className="product-wrapper">
                 <div className="image-wrapper">
                     <img src={imgUrl} alt="" className="product-image"/>

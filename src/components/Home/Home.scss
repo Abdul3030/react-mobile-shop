@@ -11,12 +11,22 @@
         flex: 0 0 25%;
         overflow-x: hidden;
     }
+    .products-header{
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        .title{
+            padding: 5px 0;
+        }
+        .subtitle{
+            padding: 5px 0;
+        }
+    }
     .products-container{
         width: 90%;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(4, auto); 
-        grid-template-rows: repeat(auto,400px);
+        grid-template-columns: repeat(4, auto);
         gap: 10px;
     }
     .services-container{

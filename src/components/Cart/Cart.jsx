@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CartItem from './CartItem/CartItem';
 import './Cart.scss';
@@ -13,7 +14,7 @@ const Cart = ({cartOpen, cart}) => {
             <div className="cart-wrapper">
                 <div className="cart-items-wrapper">
                     {
-                        cart?cart.map(item => <CartItem key={item.id} item={item} />): <p>The cart is empty</p>
+                        cart ? cart.map(item => <CartItem key={item.id} item={item} />): <p>The cart is empty</p>
                     }
                 </div>
                 <div className="total-price">
@@ -30,7 +31,9 @@ const Cart = ({cartOpen, cart}) => {
                     </button>
                 </div>
                 <div className="view-cart">
-                    View Cart
+                    <Link to='/cart' >
+                        View Cart
+                    </Link>
                 </div>
 
             </div>

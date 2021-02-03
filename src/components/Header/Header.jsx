@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, {EffectFade, Navigation, Pagination} from 'swiper';
+import SwiperCore, {EffectFade, Navigation, Pagination, Autoplay} from 'swiper';
 import './Header.scss';
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.css';
@@ -11,7 +11,7 @@ import Slide from './Slide/Slide';
 import slide1 from '../../assets/image/slide1.jpg';
 import slide2 from '../../assets/image/slide2.jpg';
 
-SwiperCore.use([EffectFade, Navigation, Pagination]);
+SwiperCore.use([EffectFade, Navigation, Pagination, Autoplay]);
 
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
     
     return (
         <div className="header-container">
-            <Swiper effect='fade' navigation pagination loop >
+            <Swiper  effect='fade' navigation pagination loop autoplay>
                 <SwiperSlide >
                     <Slide imgSource={slide1} />
                 </SwiperSlide>

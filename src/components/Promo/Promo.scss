@@ -4,45 +4,51 @@
 
 
 .promo-container{
-    width: 25%;
+    flex: 0 0 25%;
     height: 100%;
     position: relative;
     padding: 0 5px;
     .promo-wrapper{
-        position: relative;
         width: 100%;
         height: 100%;
+        position: relative;
         .image-wrapper{
             width: 100%;
+            max-width: 100%;
             height: 100%;
+            img{
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+            }
         }
-    }
-    .promo-details-container{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        .promo-details-wrapper{
-            width: 80%;
-            text-align: center;
-            color: #191919;
-            background: rgba($color: $bg-pri, $alpha: 0.7);
-            padding: 1rem 0.5rem;
-            border-radius: 0.7rem;
-            cursor: pointer;
-            transition: transform 500ms ease;
-            &:hover {
-                background: rgba($color: $special, $alpha: 0.9);
-                transform: scale(1.2);
-            }
-            .sub-title{
-
-            }
-            .title{
-
+        .promo-details-container{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .promo-details-wrapper{
+                width: 80%;
+                text-align: center;
+                color: #191919;
+                background: rgba($color: $bg-pri, $alpha: 0.7);
+                padding: 1rem 0.5rem;
+                border-radius: 0.7rem;
+                cursor: pointer;
+                transition: all 500ms ease;
+                &:hover {
+                    padding: 1.5rem 0.8rem;
+                    background: rgba($color: $special, $alpha: 0.9);
+                    .title,.sub-title{
+                        color: $bg-pri;
+                    }
+                }
+    
+           
             }
         }
     }
