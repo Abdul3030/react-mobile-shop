@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
+import { auth, signInWithGoogle } from '../../firebase/firebase';
 import {HiOutlineShoppingBag, HiOutlineUser, HiSearch} from 'react-icons/hi';
 import NavItem from './NavItem/NavItem';
 import './Navigation.scss';
 import Cart from '../Cart/Cart';
 
-const Navigation = ({cart}) => {
+const Navigation = ({cart, signed}) => {
+
     const [cartOpen, setCartOpen] = useState(false);
     const cartOpenHandler = () => {
         setCartOpen(prev => !prev)
     };
-    console.log(cart);
+
     return(
         <nav className="navigation-container">
             <div className="navigation-wrapper">
@@ -30,7 +32,7 @@ const Navigation = ({cart}) => {
                         <HiSearch className='icon' />
                     </div>
                     <div className="icons">
-                        <HiOutlineUser className='icon' />
+                            <HiOutlineUser onClick={() => signed ? auth.signOut() : signInWithGoogle()} className='icon' />
                     </div>
                     <div className="icons" >
                         <HiOutlineShoppingBag className='icon' onClick={cartOpenHandler} />
@@ -46,9 +48,10 @@ const Navigation = ({cart}) => {
 };
 
 const mapStateToProps = state => {
-    console.log(state)
+
     return {
-        cart: state.cart
+        cart: state.cart,
+        signed: state.currentUser
     }
 }
 

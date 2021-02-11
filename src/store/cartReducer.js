@@ -1,10 +1,10 @@
 import products from '../data';
-import { addToCart, removeFromCart, ActionTypes } from './cartActions';
+import { addToCart, removeFromCart, isSignedIn, ActionTypes } from './cartActions';
 
 export const initialState = {
     products: products,
+    currentUser: null,
     cart: [],
-    users: 'Jahid, Rafi, Solaiman'
 };
 
 
@@ -15,6 +15,8 @@ const cartReducer = (state = initialState, action) => {
             return addToCart(action.payload, state)
         case ActionTypes.REMOVE_FROM_CART:
             return removeFromCart(action.payload, state);
+        case ActionTypes.SIGNED_IN:
+            return isSignedIn(action.payload, state);
         default:
             return state;
     }

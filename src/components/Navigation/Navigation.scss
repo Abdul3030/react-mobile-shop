@@ -5,10 +5,12 @@
 
 
 .navigation-container{
+    position: relative;
     width: 100%;
     min-height: 50px;
     background: $bg-sec;
     box-shadow: 0 0 3px 5px rgba($color: #f1f1f1, $alpha: 0.5);
+    z-index: 1000;
     .navigation-wrapper{
         width: 90%;
         height: 100%;
@@ -42,6 +44,10 @@
                 padding: 0 1rem;
                 font-size: 1.5rem;
                 cursor: pointer;
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                }
                 &:active .icon{
                     opacity: 0.5;
                 }

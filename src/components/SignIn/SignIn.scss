@@ -1,0 +1,49 @@
+@import '../../shared';
+
+
+
+
+.signin-container{
+    width: 300px;
+    background: $bg-pri;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    .signin-wrapper{
+        width: 100%;
+        padding: 1rem 0.7rem;
+        .signin-title{
+            width: 100%;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid $special;
+            color: $special;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .signin-form{
+            width: 100%;
+            padding: 1rem 0;
+            .field-wrapper{
+                width: 100%;
+                padding: 0.5rem 0;
+                .input-field{
+                    width: 100%;
+                    color: $special;
+                    padding: 0.5rem 0.3rem;
+                    border: 1px solid $special;
+                    &::placeholder{
+                        color: rgba($color: $special, $alpha: 0.6);
+                    }
+                }
+            }
+            .submit-btn{
+                width: 100%;
+                border: none;
+                padding: 0.5rem 0;
+                text-align: center;
+                color: $bg-pri;
+                background: $special;
+            }
+        }
+        
+    };
+}

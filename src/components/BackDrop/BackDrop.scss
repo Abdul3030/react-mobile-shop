@@ -1,0 +1,21 @@
+@import '../../shared';
+
+
+
+
+.back-drop{
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba($color: $bg-sec, $alpha: 0.5);
+    z-index: 500;
+    .child-wrapper{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

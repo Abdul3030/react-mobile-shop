@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {MdRemoveShoppingCart} from 'react-icons/md';
 import { connect } from 'react-redux';
 import CartItem from './CartItem/CartItem';
 import './Cart.scss';
@@ -8,13 +9,12 @@ import './Cart.scss';
 
 const Cart = ({cartOpen, cart}) => {
 
-    
     return (
         <div className="cart-container" style={{display: `${cartOpen?'block':'none'}`}}>
             <div className="cart-wrapper">
                 <div className="cart-items-wrapper">
                     {
-                        cart ? cart.map(item => <CartItem key={item.id} item={item} />): <p>The cart is empty</p>
+                        cart.length > 0 ? cart.map(item => <CartItem key={item.id} item={item} />): <MdRemoveShoppingCart />
                     }
                 </div>
                 <div className="total-price">
@@ -22,7 +22,7 @@ const Cart = ({cartOpen, cart}) => {
                         TOTAL:
                     </p>
                     <p className="price">
-                        ${cart.reduce((acc, val) => acc + (val.quantity * val.price), 0)}
+                        ${cart.length < 1 ? cart.reduce((acc, val) => acc + (val.quantity * val.price), 0):0}
                     </p>
                 </div>
                 <div className="proceed-button">

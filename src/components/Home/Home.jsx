@@ -12,7 +12,7 @@ import Footer from '../Footer/Footer';
 
 
 const Home = ({items, full}) => {
-    console.log(full);
+    
     return (
         <div className="home-container">
             <Navigation />
@@ -45,8 +45,7 @@ const Home = ({items, full}) => {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.products,
-        full: state
+        items: state.products
     }
 };
 

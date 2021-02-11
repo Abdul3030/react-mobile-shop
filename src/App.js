@@ -1,24 +1,48 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { connect } from 'react-redux';
+import { auth, createUserProfileDocument } from './firebase/firebase';
 
-import cartReducer from './store/cartReducer';
 import './App.css';
 
 import Home from "./components/Home/Home";
+import SignIn from "./components/SignIn/SignIn";
+import { useEffect } from "react";
+import { ActionTypes } from "./store/cartActions";
 
-const store = createStore(cartReducer);
+function App({isSignedIn}) {
 
-function App() {
+  useEffect(()=> {
+    auth.onAuthStateChanged( async userAuth => {
+      console.log(userAuth);
+    if(userAuth){
+      const userRef = await  createUserProfileDocument(userAuth);
+      userRef.onSnapshot(snapShot=> {
+        isSignedIn(snapShot);
+      });
+    }
+    });
+  });
+
   return (
-    <Provider  store={store}>
       <Router>
         <div className="App">
-          <Home />
+          <Route  path='/' >
+            <Home />
+          </Route>
+          {
+            !isSignedIn?
+            <Route exact path='/sign-in' >
+              <SignIn isSignedIn={true} />
+            </Route>:
+            null
+          }
         </div>
       </Router>
-    </Provider>
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {isSignedIn: authUser => dispatch({type: ActionTypes.SIGNED_IN, payload: authUser})}
+};
+
+export default connect(null, mapDispatchToProps)(App);

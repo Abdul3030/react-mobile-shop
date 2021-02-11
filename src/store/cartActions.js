@@ -3,7 +3,8 @@
 
 export const ActionTypes = {
     ADD_TO_CART:'ADD_TO_CART',
-    REMOVE_FROM_CART: 'REMOVE_FROM_CART'
+    REMOVE_FROM_CART: 'REMOVE_FROM_CART',
+    SIGNED_IN: 'IS_SIGNED_IN'
 };
 //  Adding item to cart
 export const addToCart = (item, state) => {
@@ -18,7 +19,7 @@ export const addToCart = (item, state) => {
         updatedItem.quantity++;
         cartedItems[indexOfItem] = updatedItem;
     }
-
+    
     return {...state, cart: cartedItems};
 };
 
@@ -37,4 +38,10 @@ export const removeFromCart = (itemId, state) => {
     }
 
     return {...state, cart: cartedItems};
+};
+
+export const isSignedIn = (authUser,state) => {
+
+    return {...state, currentUser: authUser}
+    
 }
