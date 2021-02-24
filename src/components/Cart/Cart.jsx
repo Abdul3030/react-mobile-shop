@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {MdRemoveShoppingCart} from 'react-icons/md';
 import { connect } from 'react-redux';
 import CartItem from './CartItem/CartItem';
@@ -8,7 +8,7 @@ import './Cart.scss';
 
 
 const Cart = ({cartOpen, cart}) => {
-
+    const location = useHistory();
     return (
         <div className="cart-container" style={{display: `${cartOpen?'block':'none'}`}}>
             <div className="cart-wrapper">
@@ -26,7 +26,7 @@ const Cart = ({cartOpen, cart}) => {
                     </p>
                 </div>
                 <div className="proceed-button">
-                    <button>
+                    <button onClick={()=> location.push('/checkout')}>
                         Proceed to Checkout
                     </button>
                 </div>

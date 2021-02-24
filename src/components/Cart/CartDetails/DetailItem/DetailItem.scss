@@ -1,0 +1,43 @@
+.shopping-cart-item{
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.3);
+    .image-wrapper{
+        width: 10%;
+        height: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .title-wrapper{
+        width: 50%
+    }
+    .price-wrapper{
+        width: 10%;
+    }
+    .input-wrapper{
+        .quantity{
+            width: 100%;
+            min-height: 100%;
+        }
+    }
+    .tot-price-wrapper{
+        width: 10%;
+        text-align: center;
+    }
+    .btn-wrapper{
+        width: 10%;
+        .delete{
+            border: none;
+            background: none;
+            float: right;
+            color: rgba($color: #000000, $alpha: 0.7);
+            font-size: 1.5rem;
+            cursor: pointer;
+            &:active{
+                opacity: 0.7;
+            }
+        }
+    }
+}

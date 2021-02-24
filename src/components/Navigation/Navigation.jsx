@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
-import {HiOutlineShoppingBag, HiOutlineUser, HiSearch} from 'react-icons/hi';
+import {HiOutlineShoppingBag, HiOutlineUserAdd, HiOutlineUserRemove, HiSearch} from 'react-icons/hi';
 import NavItem from './NavItem/NavItem';
 import './Navigation.scss';
 import Cart from '../Cart/Cart';
@@ -12,6 +12,8 @@ const Navigation = ({cart, signed}) => {
     const cartOpenHandler = () => {
         setCartOpen(prev => !prev)
     };
+
+    console.log("Current User",signed);
 
     return(
         <nav className="navigation-container">
@@ -32,7 +34,11 @@ const Navigation = ({cart, signed}) => {
                         <HiSearch className='icon' />
                     </div>
                     <div className="icons">
-                            <HiOutlineUser onClick={() => signed ? auth.signOut() : signInWithGoogle()} className='icon' />
+                            {
+                                !signed ?
+                                <HiOutlineUserAdd onClick={() => signInWithGoogle()} className='icon' />: 
+                                <HiOutlineUserRemove onClick={() => auth.signOut()} className="icon" />
+                            }
                     </div>
                     <div className="icons" >
                         <HiOutlineShoppingBag className='icon' onClick={cartOpenHandler} />
@@ -48,7 +54,6 @@ const Navigation = ({cart, signed}) => {
 };
 
 const mapStateToProps = state => {
-
     return {
         cart: state.cart,
         signed: state.currentUser

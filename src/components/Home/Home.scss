@@ -8,7 +8,7 @@
     background: $bg-pri;
     .promos-container{
         display: flex;
-        flex: 0 0 25%;
+        flex-wrap: wrap;
         overflow-x: hidden;
     }
     .products-header{
@@ -26,8 +26,14 @@
         width: 90%;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(4, auto);
+        grid-template-columns: repeat(2, auto);
         gap: 10px;
+        @media (min-width: 700px) {
+            grid-template-columns: repeat(3, auto);
+        }
+        @media (min-width: 1020px) {
+            grid-template-columns: repeat(4, auto);
+        }
     }
     .services-container{
         width: 90%;

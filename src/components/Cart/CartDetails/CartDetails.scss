@@ -1,0 +1,24 @@
+@import '../../../shared';
+
+
+
+.cart-details-container{
+    width: 100%;
+    padding: 1rem;
+    .cart-details-wrapper{
+        width: 100%;
+        .shopping-cart-details{
+            width: 80%;
+            margin: auto;
+            .shopping-cart-title{
+                background: rgba($color: #000000, $alpha: 0.1);
+                font-size: 2rem;
+                text-transform: uppercase;
+                padding: 1rem 0;
+            }
+            .shopping-cart-items{
+                width: 100%;
+            }
+        }
+    }
+};

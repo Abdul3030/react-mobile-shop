@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Rating from 'react-rating';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import {AiOutlineShopping} from 'react-icons/ai';
@@ -11,14 +11,20 @@ import { connect } from 'react-redux';
 
 const Product = ({item, addToCart}) => {
     const {imgUrl, title, brand, rating, price} = item;
+    const [height, setHeight] = useState();
+
+    const heightRef = useRef();
+    
+    useEffect(()=> {
+        const cHeight = heightRef.current.clientHeight;
+        setHeight(cHeight);
+    },[]);
+
     return (
-        <div className="product-container" >
+        <div className="product-container" style={{maxHeight: height}} ref={heightRef}>
             <div className="product-wrapper">
                 <div className="image-wrapper">
                     <img src={imgUrl} alt="" className="product-image"/>
-                    <div className="icons-wrapper">
-
-                    </div>
                 </div>
                 <div className="description-container">
                     <div className="description-wrapper">
