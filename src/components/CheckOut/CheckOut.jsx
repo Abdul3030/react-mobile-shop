@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import CheckItem from './CheckItem/CheckItem';
 
 import './CheckOut.scss';
@@ -8,7 +9,7 @@ import './CheckOut.scss';
 
 
 const CheckOut = ({cart, subtotal}) => {
-
+    const location = useHistory();
     const shipping = subtotal*0.3;
     return (
         <div className="checkout-container">
@@ -35,8 +36,9 @@ const CheckOut = ({cart, subtotal}) => {
                     <h2>Total</h2>
                     <h2><span className='usd'>usd </span>$ {subtotal + shipping}</h2>
                 </div>
-                <div className="payment-btn">
-                    <button>pay now</button>
+                <div className="checkout-routing">
+                    <button onClick={() => location.push('/cart')} className="back-to-cart-btn">back to cart</button>
+                    <button onClick={() => location.push('/payment')} className="payment-btn">pay now</button>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 import { auth, createUserProfileDocument } from './firebase/firebase';
 
@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { ActionTypes } from "./store/actionTypes";
 import CartDetails from "./components/Cart/CartDetails/CartDetails";
 import CheckOut from "./components/CheckOut/CheckOut";
+import NotFound from "./components/NotFound/NotFound";
 
 function App({isSignedIn}) {
 
@@ -30,22 +31,27 @@ function App({isSignedIn}) {
   return (
       <Router>
         <div className="App">
-          <Route  path='/' exact >
-            <Home />
-          </Route>
-          <Route path='/cart' exact>
-            <CartDetails />
-          </Route>
-          <Route path='/checkout' exact>
-            <CheckOut />
-          </Route>
-          {
-            !isSignedIn?
-            <Route exact path='/sign-in' >
-              <SignIn isSignedIn={isSignedIn} />
-            </Route>:
-            null
-          }
+          <Switch >
+            <Route  path='/' exact >
+              <Home />
+            </Route>
+            <Route path='/cart' exact>
+              <CartDetails />
+            </Route>
+            <Route path='/checkout' exact>
+              <CheckOut />
+            </Route>
+            {
+              !isSignedIn?
+              <Route exact path='/sign-in' >
+                <SignIn isSignedIn={isSignedIn} />
+              </Route>:
+              null
+            }
+            <Route path='/payment'>
+              <NotFound />
+            </Route>
+          </Switch>
         </div>
       </Router>
   );

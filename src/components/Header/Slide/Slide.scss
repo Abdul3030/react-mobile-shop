@@ -29,18 +29,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        animation-name: jump-over;
-        animation-duration: 1s;
-        @keyframes jump-over{
-            from{
-                top:100%;
-                display: none;
-            }
-            to{
-                top: 0;
-                display: block;
-            }
-        }
+       
         .content-wrapper{
             max-width: 500px;
             text-align: center;
@@ -49,7 +38,7 @@
                 font-size: 2rem;
             }
             .title{
-                color: $bg-pri;
+                color: $col-sec;
                 font-size: 3rem;
             }
             .sub-title{

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
-import {HiOutlineShoppingBag, HiOutlineUserAdd, HiOutlineUserRemove, HiSearch} from 'react-icons/hi';
+import {HiOutlineShoppingBag, HiOutlineUserAdd, HiOutlineUserRemove, HiSearch, HiMenu} from 'react-icons/hi';
 import NavItem from './NavItem/NavItem';
 import './Navigation.scss';
 import Cart from '../Cart/Cart';
@@ -18,6 +18,9 @@ const Navigation = ({cart, signed}) => {
     return(
         <nav className="navigation-container">
             <div className="navigation-wrapper">
+                <div className="menu-btn">
+                    <HiMenu />
+                </div>
                 <div className="logo-wrapper">
                     MobileShop
                 </div>

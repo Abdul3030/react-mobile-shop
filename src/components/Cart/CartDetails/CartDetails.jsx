@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import './CartDetails.scss';
 import { connect } from 'react-redux';
 import DetailItem from './DetailItem/DetailItem';
@@ -6,7 +8,7 @@ import DetailItem from './DetailItem/DetailItem';
 
 const CartDetails = ({cart}) => {
 
-console.log(cart);
+    const location = useHistory();
 
     return (
         <div className="cart-details-container">
@@ -19,15 +21,20 @@ console.log(cart);
                         }
                     </tbody>
                 </table>
+                <div className="go-to-checkout">
+                    <button onClick={()=> location.push('/checkout')}>
+                        go to checkout
+                    </button>
+                </div>
             </div>
         </div>
     )
 };
 
 const mapStateToProps = state => {
-    console.log(state)
+ 
     return {
-        cart: state.cart
+        cart: state.cart.cartItems
     }
 }
 

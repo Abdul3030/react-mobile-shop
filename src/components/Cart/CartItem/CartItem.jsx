@@ -13,7 +13,7 @@ const CartItem = ({item, removeFromCart}) => {
             </div>
             <div className="details-wrapper">
                 <p className="product-title">
-                    {title}
+                    {title.length > 30 ? `${title.split('').splice(0, 30).join('')}...` : title}
                 </p>
                 <div className="price-wrapper">
                     <span className="quantity"> {quantity} </span>

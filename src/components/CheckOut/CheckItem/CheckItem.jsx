@@ -12,6 +12,7 @@ const CheckItem = ({item}) => {
         <li className='checkout-item'>
             <div className="image-wrapper">
                 <img src={imgUrl} alt="Product"/>
+                <span className="quantity-badge">{quantity}</span>
             </div>
             <div className="checkout-title-wrapper">
                 <p className='checkout-item-title'>{title}</p>

@@ -9,7 +9,11 @@ const SideDrawer = () => {
 
     return (
         <aside className="side-drawer">
-            
+            Side Drawer
         </aside>
     )
-}
+};
+
+
+
+export default SideDrawer;
