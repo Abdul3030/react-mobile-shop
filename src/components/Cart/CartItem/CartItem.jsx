@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { ActionTypes } from '../../../store/cartActions';
+import { ActionTypes } from '../../../store/actionTypes';
 import './CartItem.scss';
 import {RiDeleteBin6Line} from 'react-icons/ri';
 

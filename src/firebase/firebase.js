@@ -28,12 +28,15 @@ export const createUserProfileDocument = async  (userAuth, additionalData) => {
   if(!snapShot.exists){
     try{
       const {displayName, email} = userAuth;
+      const createAt = new Date();
       userRef.set({
         name: displayName,
-        email: email
+        email: email,
+        createAt,
+        ...additionalData,
       })
     }catch(error){
-      console.log(error)
+      console.log(error);
     }
   }
   return userRef;

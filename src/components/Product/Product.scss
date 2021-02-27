@@ -13,14 +13,14 @@
     overflow: hidden;
     &:hover .product-wrapper{
         .description-container{
-            top: -30px;
+            top: -40px;
              animation: jumptop 500ms ease-in-out;
             @keyframes jumptop{
                     from{
                         top: 0;
                     }
                     to{
-                        top: -30px;
+                        top: -40px;
                     }
             }
             .btn-wrapper{

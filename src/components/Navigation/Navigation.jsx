@@ -43,7 +43,7 @@ const Navigation = ({cart, signed}) => {
                     <div className="icons" >
                         <HiOutlineShoppingBag className='icon' onClick={cartOpenHandler} />
                         <span className="badge">
-                            {cart ? cart.reduce((acc, val) => acc + val.quantity, 0) : 0}
+                            {cart.length > 0 ? cart.reduce((acc, val) => acc + val.quantity, 0) : 0}
                         </span>
                         <Cart cartOpen={cartOpen} />
                     </div>
@@ -55,8 +55,8 @@ const Navigation = ({cart, signed}) => {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart,
-        signed: state.currentUser
+        cart: state.cart.cartItems,
+        signed: state.user.currentUser
     }
 }
 

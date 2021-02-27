@@ -11,7 +11,7 @@ import Service from '../Service/Service';
 import Footer from '../Footer/Footer';
 
 
-const Home = ({items, full}) => {
+const Home = ({ products }) => {
     
     return (
         <div className="home-container">
@@ -30,7 +30,7 @@ const Home = ({items, full}) => {
             <div className="products-container">
 
                 {
-                    items?items.map(item=><Product key={item.id} item={item} />):null
+                    products ? products.map(item=><Product key={item.id} item={item} />) : null
                 }
             </div>
             <section className="services-container">
@@ -45,7 +45,7 @@ const Home = ({items, full}) => {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.products
+        products: state.products.SHOP_DATA
     }
 };
 

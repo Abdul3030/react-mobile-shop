@@ -1,17 +1,9 @@
-// Types of Actions
-
-
-export const ActionTypes = {
-    ADD_TO_CART:'ADD_TO_CART',
-    REMOVE_FROM_CART: 'REMOVE_FROM_CART',
-    SIGNED_IN: 'IS_SIGNED_IN'
-};
 
 //  Adding item to cart
 
-
 export const addToCart = (item, state) => {
-    const cartedItems = [...state.cart];
+    console.log(state);
+    const cartedItems = [...state.cartItems];
 
     const indexOfItem = cartedItems.findIndex(product=> product.id === item.id);
     
@@ -23,13 +15,13 @@ export const addToCart = (item, state) => {
         cartedItems[indexOfItem] = updatedItem;
     }
     
-    return {...state, cart: cartedItems};
+    return {...state, cartItems: cartedItems};
 };
 
 
 // Removing item from card
 export const removeFromCart = (itemId, state) => {
-    const cartedItems = [...state.cart];
+    const cartedItems = [...state.cartItems];
 
     const indexOfItem = cartedItems.findIndex(product=> product.id === itemId);
     const updatedItem = { ...cartedItems[indexOfItem] };
@@ -40,11 +32,6 @@ export const removeFromCart = (itemId, state) => {
         cartedItems[indexOfItem] = updatedItem;
     }
 
-    return {...state, cart: cartedItems};
+    return {...state, cartItems: cartedItems};
 };
 
-export const isSignedIn = (authUser,state) => {
-
-    return {...state, currentUser: authUser}
-    
-}

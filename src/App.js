@@ -7,7 +7,7 @@ import './App.css';
 import Home from "./components/Home/Home";
 import SignIn from "./components/SignIn/SignIn";
 import { useEffect } from "react";
-import { ActionTypes } from "./store/cartActions";
+import { ActionTypes } from "./store/actionTypes";
 import CartDetails from "./components/Cart/CartDetails/CartDetails";
 import CheckOut from "./components/CheckOut/CheckOut";
 
@@ -15,16 +15,18 @@ function App({isSignedIn}) {
 
   useEffect(()=> {
     auth.onAuthStateChanged( async userAuth => {
-      isSignedIn(userAuth);
     if(userAuth){
       const userRef = await  createUserProfileDocument(userAuth);
       userRef.onSnapshot(snapShot=> {
-        
+        isSignedIn({
+          id: snapShot.id,
+          ...snapShot.data()
+        })
       });
     }
+    isSignedIn(userAuth);
     });
   });
-
   return (
       <Router>
         <div className="App">

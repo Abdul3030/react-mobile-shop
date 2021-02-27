@@ -9,6 +9,7 @@ import './Cart.scss';
 
 const Cart = ({cartOpen, cart}) => {
     const location = useHistory();
+    console.log(cart);
     return (
         <div className="cart-container" style={{display: `${cartOpen?'block':'none'}`}}>
             <div className="cart-wrapper">
@@ -22,7 +23,7 @@ const Cart = ({cartOpen, cart}) => {
                         TOTAL:
                     </p>
                     <p className="price">
-                        ${cart.length < 1 ? cart.reduce((acc, val) => acc + (val.quantity * val.price), 0):0}
+                        ${cart.length > 0 ? cart.reduce((acc, val) => acc + (val.quantity * val.price), 0):0}
                     </p>
                 </div>
                 <div className="proceed-button">
@@ -42,8 +43,9 @@ const Cart = ({cartOpen, cart}) => {
 };
 
 const mapStateToProps = state => {
+    
     return {
-        cart: state.cart
+        cart: state.cart.cartItems
     }
 }
 
