@@ -2,7 +2,7 @@
 //  Adding item to cart
 
 export const addToCart = (item, state) => {
-    console.log(state);
+    
     const cartedItems = [...state.cartItems];
 
     const indexOfItem = cartedItems.findIndex(product=> product.id === item.id);
