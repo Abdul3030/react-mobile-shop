@@ -9,7 +9,6 @@ import './Cart.scss';
 
 const Cart = ({cartOpen, cart}) => {
     const location = useHistory();
-    console.log(cart);
     return (
         <div className="cart-container" style={{display: `${cartOpen?'block':'none'}`}}>
             <div className="cart-wrapper">

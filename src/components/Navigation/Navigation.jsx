@@ -23,7 +23,7 @@ const Navigation = ({cart, signed}) => {
         setIsDrawerOpen(prev => !prev);
     };
 
-    console.log("Current User",signed);
+
 
     return(
         <Fragment >

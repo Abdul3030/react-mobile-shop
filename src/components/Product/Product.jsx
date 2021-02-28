@@ -15,20 +15,20 @@ const Product = ({item, addToCart}) => {
 
     const productRef = useRef();
     
+    const getHeight = () => {
+       const oHeight = productRef.current.offsetHeight;
+       setHeight(oHeight);
+    };
+    
     useEffect(()=> {
+       
+        productRef.current.addEventListener('load', getHeight());
 
-        
-        const oHeight = productRef.current.offsetHeight;
-            const timeout = setTimeout(()=> {
-                setHeight(oHeight);
-                console.log('triggerd')
-            }, 500);
-            return () => clearTimeout(timeout);
-    },[item]);
+    },[height]);
     
     return (
-        <div className="product-container" style={{maxHeight: height}} ref={productRef}>
-            <div className="product-wrapper">
+        <div className="product-container" ref={productRef}>
+            <div className="product-wrapper" style={{maxHeight: height}}>
                 <div className="image-wrapper">
                     <img src={imgUrl} alt="" className="product-image"/>
                 </div>
