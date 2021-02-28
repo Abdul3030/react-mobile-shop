@@ -11,7 +11,7 @@
     background: $bg-sec;
     box-shadow: 0 0 3px 5px rgba($color: #000000, $alpha: 0.2);
     transition: all 1s;
-    z-index: 1000;
+    z-index: 1500;
     .navigation-wrapper{
         width: 100%;
         height: 100%;
@@ -25,6 +25,7 @@
         .menu-btn{
             color: $special;
             font-size: 1.5rem;
+            cursor: pointer;
             @media (min-width: 1000px) {
                 display: none;
             }

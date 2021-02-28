@@ -2,3 +2,23 @@
 
 
 
+.side-drawer{
+    position: fixed;
+    top: 0;
+    width: 260px;
+    min-height: 100vh;
+    z-index: 1000;
+    background: $bg-sec;
+    color: $special;
+    box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+    transition: transform 500ms;
+    &.drawer-open{
+        transform: translateX(0);
+    }
+    &.drawer-close{
+        transform: translateX(-260px);
+    }
+    .side-drawer-wrapper{
+        padding: 2rem 0;
+    }
+}

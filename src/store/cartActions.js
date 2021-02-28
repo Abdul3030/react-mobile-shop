@@ -35,3 +35,16 @@ export const removeFromCart = (itemId, state) => {
     return {...state, cartItems: cartedItems};
 };
 
+// delete item from cart
+
+export const deleteFromCart = (itemId, state) => {
+    const cartedItems = [...state.cartItems];
+
+    const indexOfItem = cartedItems.findIndex(product=> product.id === itemId);
+    
+    cartedItems.splice(indexOfItem,1)
+
+    return {...state, cartItems: cartedItems};
+};
+
+

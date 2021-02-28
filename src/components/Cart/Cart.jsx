@@ -32,7 +32,7 @@ const Cart = ({cartOpen, cart}) => {
                     </button>
                 </div>
                 <div className="view-cart">
-                    <Link to='/cart' >
+                    <Link to={cart.length > 0 ? '/cart' : null} >
                         View Cart
                     </Link>
                 </div>

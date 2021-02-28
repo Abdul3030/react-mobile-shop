@@ -1,6 +1,7 @@
 import React from 'react';
-import {FaFacebookF} from 'react-icons/fa';
+import {FaFacebookF, FaTwitter, FaInstagram, FaDribbble, FaYoutube } from 'react-icons/fa';
 import './Footer.scss';
+import FooterOption from './FooterOption/FooterOption';
 
 
 const Footer = () => {
@@ -11,7 +12,8 @@ const Footer = () => {
             <div className="footer-wrapper">
                 <div className="footer-details">
                     <div className="left">
-
+                        <FooterOption />
+                        <FooterOption />
                     </div>
                     <div className="right">
                         <div className="newsletter-signup">
@@ -36,16 +38,16 @@ const Footer = () => {
                                     <FaFacebookF />
                                 </div>
                                 <div className="social-icon">
-                                    <FaFacebookF />
+                                    <FaTwitter />
                                 </div>
                                 <div className="social-icon">
-                                    <FaFacebookF />
+                                    <FaInstagram />
                                 </div>
                                 <div className="social-icon">
-                                    <FaFacebookF />
+                                    <FaYoutube   />
                                 </div>
                                 <div className="social-icon">
-                                    <FaFacebookF />
+                                    <FaDribbble />
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdDelete } from 'react-icons/md';
-
+import { connect } from 'react-redux';
+import { ActionTypes } from '../../../../store/actionTypes';
 
 import './DetailItem.scss';
 
@@ -8,9 +9,11 @@ import './DetailItem.scss';
 
 
 
-const DetailItem = ({item}) => {
+const DetailItem = ({item, deleteItem, removeItem, addItem}) => {
+
+    
     const {imgUrl, title, price, quantity } = item;
-    console.log(item);
+
     return(
         <React.Fragment>
             <tr className="shopping-cart-item">
@@ -24,13 +27,15 @@ const DetailItem = ({item}) => {
                                 <p className="p-price">{price}</p>
                             </td>
                             <td className='input-wrapper'>
-                                <input type="number" min='1' name="quantity" readOnly value={quantity} className="quantity"/> 
+                                <span onClick={() => quantity > 1 ? removeItem(item.id) : null} >-</span>
+                                <input readOnly type="number" min='1' name="quantity" value={quantity} className="quantity"/>
+                                <span onClick={() => addItem(item)} >+</span> 
                             </td>
                             <td className='tot-price-wrapper'>
                                 <p>{price*quantity}</p>
                             </td>
                             <td className='btn-wrapper'>
-                                <button className="delete">
+                                <button className="delete" onClick={()=> deleteItem(item.id)}>
                                     <MdDelete />
                                 </button>
                             </td>
@@ -39,5 +44,11 @@ const DetailItem = ({item}) => {
     )
 }
 
-
-export default DetailItem;
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteItem: itemId => dispatch({type: ActionTypes.DELETE_FROM_CART, payload: itemId}),
+        removeItem: itemId => dispatch({type: ActionTypes.REMOVE_FROM_CART, payload: itemId}),
+        addItem: item => dispatch({type: ActionTypes.ADD_TO_CART, payload: item})
+    }
+}
+export default connect(null, mapDispatchToProps)(DetailItem);

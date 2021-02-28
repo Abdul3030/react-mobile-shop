@@ -1,0 +1,25 @@
+@import '../../../shared';
+
+
+
+
+.footer-option{
+    width: 100%;
+    h2{
+        text-transform: uppercase;
+        color: $bg-pri;
+        font-size: 1.2rem;
+    }
+    .sub-item{
+        padding: 1rem 0;
+        li{
+            padding: 2px 0;
+            list-style: none;
+            text-transform: capitalize;
+            a{
+                text-decoration: none;
+                color: rgba($color: $bg-pri, $alpha: 0.5);
+            }
+        }
+    }
+}
