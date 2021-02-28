@@ -16,17 +16,16 @@ const Product = ({item, addToCart}) => {
     const productRef = useRef();
     
     useEffect(()=> {
-        const oWidth = productRef.current.offsetWidth;
+
+        
         const oHeight = productRef.current.offsetHeight;
-        if(oWidth > 700){
             const timeout = setTimeout(()=> {
                 setHeight(oHeight);
                 console.log('triggerd')
             }, 500);
             return () => clearTimeout(timeout);
-        }
-    },[]);
-
+    },[item]);
+    
     return (
         <div className="product-container" style={{maxHeight: height}} ref={productRef}>
             <div className="product-wrapper">

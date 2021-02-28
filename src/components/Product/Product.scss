@@ -10,6 +10,27 @@
     position: relative;
     transition: all 1s ease-in-out;
     overflow: hidden;
+        &:hover .product-wrapper{
+            .description-container{
+                @media (min-width: 700px){
+                    top: -40px;
+                    animation: jumptop 500ms ease-in-out;
+                    @keyframes jumptop{
+                        from{
+                            top: 0;
+                        }
+                        to{
+                            top: -40px;
+                        }
+                    }
+                    .btn-wrapper{
+                    display: block;
+                    }
+                }
+                
+            }
+    
+        }
     .product-wrapper{
         width: 100%;
         position: relative;
@@ -90,26 +111,6 @@
                     display: none;
                 }
             }
-        }
-    }
-    @media (min-width: 700px) {
-        &:hover .product-wrapper{
-            .description-container{
-                top: -40px;
-                 animation: jumptop 500ms ease-in-out;
-                @keyframes jumptop{
-                        from{
-                            top: 0;
-                        }
-                        to{
-                            top: -40px;
-                        }
-                }
-                .btn-wrapper{
-                    display: block;
-                }
-            }
-    
         }
     }
     

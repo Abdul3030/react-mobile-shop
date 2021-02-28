@@ -17,9 +17,9 @@ const Footer = () => {
                     </div>
                     <div className="right">
                         <div className="newsletter-signup">
-                            <h1 className="title">
+                            <h2 className="title">
                                 newsletter signup
-                            </h1>
+                            </h2>
                             <p className="descriptions">
                             Sign up for our e-mail and be the first who know our special offers! 
                             Furthermore, 
