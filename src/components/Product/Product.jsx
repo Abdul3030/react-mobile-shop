@@ -17,22 +17,20 @@ const Product = ({item, addToCart}) => {
     
     const getHeight = () => {
         productRef.current.style.maxHeight = `${height}px`;
-        console.log(height)
     };
     const clearHeight = () => {
         productRef.current.removeAttribute('style');
     };
     
     useEffect(()=> {
-
         const rect = productRef.current.getBoundingClientRect();
         const exactHeight = rect.height;
         setHeight(exactHeight);
 
-    },[height]);
+    });
 
     return (
-        <div className="product-container" onMouseOver={getHeight} onMouseOut={clearHeight} >
+        <div className="product-container" onMouseEnter={getHeight} onMouseLeave={clearHeight} >
             <div className="product-wrapper"  ref={productRef}>
                 <div className="image-wrapper">
                     <img src={imgUrl} alt="" className="product-image"/>
