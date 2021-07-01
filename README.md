@@ -2,8 +2,7 @@
 ![image](https://user-images.githubusercontent.com/86480763/124058092-847aaf80-da4a-11eb-9bca-68ea3d3a2b42.png)
 
 This project was build with React, Redux, Sass
-
-
+## [View Project Demo](https://redux-mobile-shop.netlify.app/)
 # To test the app locally clone the repo
 
 ## And Available Scripts
